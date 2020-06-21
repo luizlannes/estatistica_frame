@@ -6,7 +6,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.feature_selection import RFE
 from sklearn.linear_model import RidgeCV, LassoCV, Ridge, Lasso
 from sklearn.feature_selection import SelectPercentile, f_classif
-from sklearn.ensemble import RandomForestClassifier, RandomFortestRegressor
+from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
 
 
 FEATURES_CLINICA_HISTORIA_PREVIA = [
