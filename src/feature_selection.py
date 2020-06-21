@@ -6,7 +6,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.feature_selection import RFE
 from sklearn.linear_model import RidgeCV, LassoCV, Ridge, Lasso
 from sklearn.feature_selection import SelectPercentile, f_classif
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import RandomForestClassifier, RandomFortestRegressor
 
 
 FEATURES_CLINICA_HISTORIA_PREVIA = [
@@ -230,9 +230,10 @@ class Embedded():
 
 class Ensemble():
 
-    def __init__(self, thresh=0.05):
+    def __init__(self, thresh=0.05, goal='classification'):
         self.thresh = thresh
         self.relevant_features = []
+        self.goal = goal
 
 
     def __check_inputs(self, X, y):
@@ -246,8 +247,11 @@ class Ensemble():
         y: a series
         '''
         # Build a forest and compute the feature importances
-        forest = RandomForestClassifier(n_estimators=250,
-                                    random_state=0)
+        if self.goal == 'regression':
+            forest = RandomFortestRegressor()
+        else:
+            forest = RandomForestClassifier(n_estimators=250,
+                                        random_state=0)
 
         forest.fit(X, y)
 
