@@ -248,7 +248,7 @@ class Ensemble():
         '''
         # Build a forest and compute the feature importances
         if self.goal == 'regression':
-            forest = RandomFortestRegressor()
+            forest = RandomForestRegressor()
         else:
             forest = RandomForestClassifier(n_estimators=250,
                                         random_state=0)
