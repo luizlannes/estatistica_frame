@@ -270,9 +270,8 @@ class Ensemble():
         relevant_importances = self.scores[self.scores >= self.thresh]
         self.relevant_features = self.feature_names[self.scores >= self.thresh]
         
-        
-
-        pass
+    
+        return self
 
 
 
